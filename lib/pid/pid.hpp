@@ -1,6 +1,3 @@
-//
-// Created by Fezaro on 16.09.2024.
-//
 #ifndef PID_HPP
 #define PID_HPP
 
@@ -9,26 +6,13 @@
 class PID {
 public:
     // Constructor
-    PID(double setPoint, double Kp, double Ki, double Kd)
-        : myController(), setPoint(setPoint), Kp(Kp), Ki(Ki), Kd(Kd), input(0), output(0) {
-    }
+    PID(double setPoint, double Kp, double Ki, double Kd);
 
     // Method to set up PID
-    void setup() {
-        myController.begin(&input, &output, &setPoint, Kp, Ki, Kd);
-        myController.setOutputLimits(-255, 255);
-        myController.setBias(0);
-        myController.setWindUpLimits(-10, 10);
-        myController.start();
-    }
+    void setup();
 
     // Method to compute PID
-    int compute(const int value) {
-        input = value;
-        myController.compute();
-        return output;
-    }
-
+    int compute(const int value);
 
 private:
     ArduPID myController;
@@ -40,5 +24,4 @@ private:
     double output;
 };
 
-
-#endif //PID_HPP
+#endif // PID_HPP
