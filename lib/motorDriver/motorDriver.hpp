@@ -1,7 +1,3 @@
-//
-// Created by Fezaro on 23.09.2024.
-//
-
 #ifndef MOTORDRIVER_HPP
 #define MOTORDRIVER_HPP
 
@@ -18,18 +14,10 @@
 constexpr int offsetA = 1;
 constexpr int offsetB = 1;
 
-Motor motor1 = Motor(AIN1, AIN2, PWMA, offsetA, STBY);
-Motor motor2 = Motor(BIN1, BIN2, PWMB, offsetB, STBY);
+extern Motor motor1;
+extern Motor motor2;
 
-inline void driveMotor1(int speed, int baseSpeed) {
-    motor1.drive(constrain((baseSpeed+speed), 0, 255));
+void driveMotor1(int speed, int baseSpeed);
+void driveMotor2(int speed, int baseSpeed);
 
-}
-
-inline void driveMotor2(int speed, int baseSpeed) {
-    motor2.drive(constrain((baseSpeed-speed), 0, 255));
-}
-
-
-
-#endif //MOTORDRIVER_HPP
+#endif // MOTORDRIVER_HPP

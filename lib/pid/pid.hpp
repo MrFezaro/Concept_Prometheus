@@ -23,7 +23,7 @@ public:
     }
 
     // Method to compute PID
-    double compute(int value) {
+    int compute(const int value) {
         input = value;
         myController.compute();
         return output;
