@@ -12,7 +12,10 @@ public:
     void setup();
 
     // Method to compute PID
-    int compute(const int value);
+    int compute(int value);
+
+    // Method to set the setpoint
+    void setpoint(float newSetpoint);
 
 private:
     ArduPID myController;

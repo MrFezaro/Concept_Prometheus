@@ -20,3 +20,7 @@ int PID::compute(const int value) {
     myController.compute();
     return output;
 }
+
+void PID::setpoint(const float newSetpoint) {
+    setPoint = newSetpoint;
+}

@@ -18,6 +18,9 @@ extern Motor motor1;
 extern Motor motor2;
 
 void driveMotor1(int speed, int baseSpeed);
+
 void driveMotor2(int speed, int baseSpeed);
+
+void stopMotors();
 
 #endif // MOTORDRIVER_HPP

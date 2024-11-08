@@ -20,7 +20,8 @@ void odometrySensorSetup() {
     while (Serial.available())
         Serial.read();
     // Wait for user input
-    while (!Serial.available()) {}
+    while (!Serial.available()) {
+    }
 
     Serial.println("Calibrating IMU...");
 

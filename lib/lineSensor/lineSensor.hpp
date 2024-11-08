@@ -10,6 +10,7 @@ constexpr uint8_t SensorCount = 8;
 extern uint16_t sensorValues[SensorCount];
 
 void lineSensorSetup();
+
 int getLineSensorValue();
 
 #endif // LINESENSOR_HPP

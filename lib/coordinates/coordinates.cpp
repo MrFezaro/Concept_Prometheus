@@ -1,10 +1,9 @@
 #include "coordinates.hpp"
-#include <Arduino.h>
 
-// Array to store points
+// Array to hold points
 Point points[MAX_POINTS];
 
-// Variable to track the number of points added
+// Number of points in the array
 int pointCount = 0;
 
 void addPoint(const float x, const float y) {
@@ -12,7 +11,13 @@ void addPoint(const float x, const float y) {
         points[pointCount].x = x;
         points[pointCount].y = y;
         pointCount++;
-    } else {
-        Serial.println("Max points reached, cannot add more points.");
     }
+}
+
+void resetPoints() {
+    for (int i = 0; i < pointCount; i++) {
+        points[i].x = 0;
+        points[i].y = 0;
+    }
+    pointCount = 0;
 }
