@@ -10,6 +10,8 @@
 #include "timer.hpp"
 
 Timer addPointTimer; // Timer object to control the timing of adding points
+PID motorEncoder1(0, 0.5, 0, 4); // PID object for motor encoder 1
+PID motorEncoder2(0, 0.5, 0, 4); // PID object for motor encoder 2
 PID PID_racing(500, 0.5, 0, 4); // PID object for fast line following
 PID PID_mapping(500, 0.5, 0, 4); // PID object for slow line following
 PID PID_map_racing(0, 0.5, 0, 4); // PID object for map following
@@ -25,7 +27,6 @@ enum State {
 int currentState = IDLE;
 
 void setup() {
-    pinMode(LED_BUILTIN, OUTPUT);
     Serial.begin(9600);
     Wire.begin();
     odometrySensorSetup();
@@ -43,14 +44,15 @@ void loop() {
             stopMotors();
             break;
         }
-
         case FOLLOW_LINE: {
             const int sensorValueRace = getLineSensorValue();
             const int PID_race = PID_racing.compute(sensorValueRace);
 
             if (sensorValueRace > 0 && sensorValueRace < 1000) {
-                driveMotor1(PID_race, 200);
-                driveMotor2(PID_race, 200);
+                motorEncoder1.setpoint(PID_race);
+                motorEncoder2.setpoint(PID_race);
+                driveMotor1(motorEncoder1.compute(getMotor1Speed()), 200);
+                driveMotor2(motorEncoder2.compute(getMotor2Speed()), 200);
             } else if (sensorValueRace == 0) {
                 motor1.drive(255);
                 motor2.brake();
@@ -60,24 +62,20 @@ void loop() {
             }
             break;
         }
-
         case MAPPING: {
             const int sensorValueMap = getLineSensorValue();
             const int PID_map = PID_mapping.compute(sensorValueMap);
+
             myOtos.getPosition(myPosition);
 
             if (addPointTimer.has_expired()) {
-                digitalWrite(LED_BUILTIN, HIGH);
                 addPoint(myPosition.x, myPosition.y);
                 addPointTimer.start(100);
-            } else {
-                digitalWrite(LED_BUILTIN, LOW);
             }
-            driveMotor1(PID_map, 100);
-            driveMotor2(PID_map, 100);
+            driveMotor1(motorEncoder1.compute(PID_map()), 100);
+            driveMotor2(motorEncoder2.compute(PID_map()), 100);
             break;
         }
-
         case FOLLOW_MAP: {
             myOtos.getPosition(myPosition);
 
@@ -88,18 +86,16 @@ void loop() {
 
             const int PID_map_race = PID_mapping.compute(myPosition.h);
 
-            driveMotor1(PID_map_race, 255);
-            driveMotor2(PID_map_race, 255);
+            driveMotor1(motorEncoder1.compute(PID_map_race()), 255);
+            driveMotor2(motorEncoder2.compute(PID_map_race()), 255);
             break;
         }
-
         case RESET_MAP: {
             stopMotors();
             myOtos.resetTracking();
             resetPoints();
             break;
         }
-
         default: {
             stopMotors();
         }
