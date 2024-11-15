@@ -2,7 +2,7 @@
 
 This line-following mapping robot is designed to autonomously navigate a predefined path by following a visible line or series of coordinates. 
 The robot uses an infrared sensor array to detect the line. IMU and optical flow sensor are used to give precise position and heading.
-This can be combined to follow a path and adjusts its movement accordingly. Since this is only a concept idea the cad model is not available.
+This can be combined to follow a path and adjusts its movement accordingly. Since this is only a concept idea, the CAD model is not provided.
 
 ## Components 
 * Arduino Nano 33 IoT
