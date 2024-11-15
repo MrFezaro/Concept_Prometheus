@@ -22,5 +22,8 @@ This can be combined to follow a path and adjusts its movement accordingly. Sinc
 
 ## CAD Model
 ![Spinning Robot](docs/assets/cad_model_spin.gif)
+![Top View](docs/assets/cad_1.png)
+![Back View](docs/assets/cad_2.png)
+![Under View](docs/assets/cad_3.png)
 
 
