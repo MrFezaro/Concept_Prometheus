@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <Wire.h>
 
 #include "coordinates.hpp"
 #include "lineSensor.hpp"
@@ -72,8 +71,8 @@ void loop() {
                 addPoint(myPosition.x, myPosition.y);
                 addPointTimer.start(100);
             }
-            driveMotor1(motorEncoder1.compute(PID_map()), 100);
-            driveMotor2(motorEncoder2.compute(PID_map()), 100);
+            driveMotor1(motorEncoder1.compute(PID_map), 100);
+            driveMotor2(motorEncoder2.compute(PID_map), 100);
             break;
         }
         case FOLLOW_MAP: {
@@ -86,8 +85,8 @@ void loop() {
 
             const int PID_map_race = PID_mapping.compute(myPosition.h);
 
-            driveMotor1(motorEncoder1.compute(PID_map_race()), 255);
-            driveMotor2(motorEncoder2.compute(PID_map_race()), 255);
+            driveMotor1(motorEncoder1.compute(PID_map_race), 255);
+            driveMotor2(motorEncoder2.compute(PID_map_race), 255);
             break;
         }
         case RESET_MAP: {
