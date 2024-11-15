@@ -29,6 +29,9 @@ void setup() {
     Serial.begin(9600);
     Wire.begin();
     odometrySensorSetup();
+    motorSetup();
+    motorEncoder1.setup();
+    motorEncoder2.setup();
     PID_racing.setup();
     PID_mapping.setup();
     PID_map_racing.setup();
@@ -45,7 +48,7 @@ void loop() {
         }
         case FOLLOW_LINE: {
             const int sensorValueRace = getLineSensorValue();
-            const int PID_race = PID_racing.compute(sensorValueRace);
+            const int PID_race = PID_racing.compute(getLineSensorValue());
 
             if (sensorValueRace > 0 && sensorValueRace < 1000) {
                 motorEncoder1.setpoint(PID_race);
@@ -62,8 +65,7 @@ void loop() {
             break;
         }
         case MAPPING: {
-            const int sensorValueMap = getLineSensorValue();
-            const int PID_map = PID_mapping.compute(sensorValueMap);
+            const int PID_map = PID_mapping.compute(getLineSensorValue());
 
             myOtos.getPosition(myPosition);
 
