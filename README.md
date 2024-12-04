@@ -17,7 +17,7 @@ This can be combined to follow a path and adjusts its movement accordingly. Sinc
 * TB6612FNG motor driver
 
 ## Circuit Diagram
-![Schematic](docs/assets/circuit_diagram.png)
+![Schematic](docs/assets/Wiring_Diagram.png)
 
 
 ## CAD Model
