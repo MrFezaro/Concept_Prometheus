@@ -53,7 +53,7 @@ void loop() {
     deltaX -= deltaY * yToXCrossTalk;
 
     // Get the angle from the MPU6050
-    angleDeg = mpu.getAngleZ();
+    angleDeg = mpu.getAngleZ(); // Used this library because their filter was better than mine :)
     angleRad = (angleDeg * 3.14159) / 180.0;
     angleRad *= 1.0055865921787709497206703910615; // Correct for the MPU6050's slight error
 
