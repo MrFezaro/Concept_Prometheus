@@ -1,3 +1,4 @@
 ## These examples shows how:
  * Bluetooth can be implemented when using the Arduino Nano 33 IoT to change the parameters
  * The optical flow sensor test setup works
+ * How visualization of the map works
