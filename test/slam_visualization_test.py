@@ -81,7 +81,7 @@ reset_button = Button(reset_ax, 'Reset')
 reset_button.on_clicked(reset_data)
 
 # Create animation to update plot
-ani = FuncAnimation(fig, update_plot, blit=True, interval=10)  # Update every 100ms
+ani = FuncAnimation(fig, update_plot, blit=True, interval=100)  # Update every 100ms
 
 # Show the plot
 plt.show()
