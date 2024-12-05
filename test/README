@@ -1,1 +1,3 @@
-## This example shows how bluetooth can be implemented when using the Arduino Nano 33 IoT to change the parameters
+## These examples shows how:
+ * Bluetooth can be implemented when using the Arduino Nano 33 IoT to change the parameters
+ * The optical flow sensor test setup works
