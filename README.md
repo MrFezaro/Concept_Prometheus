@@ -1,8 +1,9 @@
-# Line Following Robot
+# Concept Prometheus
 
-This line-following mapping robot concept is designed to autonomously navigate a predefined path by following a visible line or series of coordinates. 
-The robot uses an infrared sensor array to detect the line. IMU and optical flow sensor are used to give precise position and heading.
-This can be combined to follow a path and adjusts its movement accordingly. Since this is only a concept idea, the CAD model is not provided.
+High speed line following robot with basic SLAM implementation.
+
+## Overview
+This line-following mapping robot concept is designed to autonomously navigate a predefined path by following a visible line or series of coordinates. The robot uses an infrared sensor array to detect the line, and IMU and optical flow sensors to provide precise position and heading. These components work together to enable the robot to follow a path and adjust its movement accordingly.
 
 ## Components 
 * Arduino Nano 33 IoT
@@ -19,11 +20,15 @@ This can be combined to follow a path and adjusts its movement accordingly. Sinc
 ## Circuit Diagram
 ![Schematic](docs/assets/Wiring_Diagram.png)
 
-
 ## CAD Model
 ![Spinning Robot](docs/assets/cad_model_spin.gif)
 ![Top View](docs/assets/cad_1.png)
 ![Back View](docs/assets/cad_2.png)
 ![Under View](docs/assets/cad_3.png)
 
-
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MrFezaro/Concept_Prometheus.git
+   cd Concept_Prometheus
+   ```
