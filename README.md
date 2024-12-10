@@ -2,7 +2,7 @@
 
 High speed line following robot with basic SLAM implementation.
 
-Full report can be found [here](docs/assets/Concept_Prometheus.pdf).
+Full report can be found [here](docs/assets/Project_Prometheus.pdf).
 
 ## Overview
 This line-following mapping robot concept is designed to autonomously navigate a predefined path by following a visible line or series of coordinates. The robot uses an infrared sensor array to detect the line, and IMU and optical flow sensors to provide precise position and heading. These components work together to enable the robot to follow a path and adjust its movement accordingly.
