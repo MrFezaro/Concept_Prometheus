@@ -19,18 +19,11 @@ This line-following mapping robot concept is designed to autonomously navigate a
 * 2x Pololu ball caster with 3/8" metal ball
 * TB6612FNG motor driver
 
-## Circuit Diagram
-![Schematic](docs/assets/Wiring_Diagram.png)
-
 ## CAD Model
 ![Spinning Robot](docs/assets/cad_model_spin.gif)
 ![Top View](docs/assets/cad_1.png)
 ![Back View](docs/assets/cad_2.png)
 ![Under View](docs/assets/cad_3.png)
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/MrFezaro/Concept_Prometheus.git
-   cd Concept_Prometheus
-   ```
+## Circuit Diagram
+![Schematic](docs/assets/Wiring_Diagram.png)
